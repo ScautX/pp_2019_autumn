@@ -2,7 +2,7 @@
 #include <gtest-mpi-listener.hpp>
 #include <gtest/gtest.h>
 #include <fstream>
-#include <iostream>
+#include <vector>
 #include "./image_smoothing.h"
 
 TEST(Test_Image_Smoothing, Test_Get_Image) {

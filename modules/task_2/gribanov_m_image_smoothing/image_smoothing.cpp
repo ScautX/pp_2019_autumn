@@ -1,25 +1,25 @@
 // Copyright 2019 Gribanov Mihail
+#include "./image_smoothing.h"
 #include <mpi.h>
 #include <vector>
 #include <random>
 #include <ctime>
-#include "./image_smoothing.h"
 
 std::vector<int> getImg(int sizeX, int sizeY) {
     if (sizeX <= 0 || sizeY <= 0) {
         throw - 1;
     }
     std::vector <int> arr(sizeX * sizeY);
-    std::default_random_engine rand;
-    rand.seed(static_cast<unsigned int>(std::time(0)));
+    std::default_random_engine r;
+    r.seed(static_cast<unsigned int>(std::time(0)));
     for (int i = 0; i < sizeX * sizeY; i++) {
-        arr[i] = rand() % 256;
+        arr[i] = r() % 256;
     }
     return arr;
 }
 
 std::vector<int> smoothSeq(std::vector<int> img, int sizeX, int sizeY) {
-	std::vector<int> newImg(sizeX * sizeY);
+    std::vector<int> newImg(sizeX * sizeY);
 
     for (int i = 0; i < sizeX*sizeY; i++) {
         int sum = img[i];
