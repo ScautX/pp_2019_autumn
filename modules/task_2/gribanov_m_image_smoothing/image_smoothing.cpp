@@ -1,5 +1,5 @@
 // Copyright 2019 Gribanov Mihail
-#include "./image_smoothing.h"
+#include "../../../modules/task_2/gribanov_m_image_smoothing/image_smoothing.h"
 #include <mpi.h>
 #include <vector>
 #include <random>
