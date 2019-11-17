@@ -122,7 +122,7 @@ std::vector<int> smoothPar(std::vector<int> img, int sizeX, int sizeY) {
                     }
                 }
                 newImg[i] = sum / n;
-            }            
+            }
             MPI_Send(&newImg[startPos], delta, MPI_INT, 0, 0, MPI_COMM_WORLD);
         }
     }
