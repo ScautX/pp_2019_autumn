@@ -68,14 +68,14 @@ TEST(Test_Image_Smoothing, Test_Parallel_Smooth_50x70) {
     }
 }
 
-TEST(Test_Image_Smoothing, Test_Parallel_Smooth_1000x500) {
+TEST(Test_Image_Smoothing, Test_Parallel_Smooth_100x100) {
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    std::vector<int> Img(1000 * 500);
-    std::vector<int> SImg(1000 * 500);
+    std::vector<int> Img(100 * 100);
+    std::vector<int> SImg(100 * 100);
     Img = getImg(1000, 500);
-    SImg = smoothSeq(Img, 1000, 500);
-    Img = smoothPar(Img, 1000, 500);
+    SImg = smoothSeq(Img, 100, 100);
+    Img = smoothPar(Img, 100, 100);
     if (rank == 0) {
         ASSERT_EQ(Img, SImg);
     }
